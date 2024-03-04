@@ -8,19 +8,20 @@ For the Demo, SRLinux devices are going to show up in the containerlab environme
 
 ![](schema.JPG)
 
-** Here are the steps for the demo **
+
+**Here are the steps for the demo**
 
 ## Deploy the test topology
 > git clone https://github.com/muzafferkahraman/network_automation_demo
 > cd network_automation_demo
-> clab deploy -t muzolab.yml --reconfigure
+> clab deploy -t lab_deploy.yml --reconfigure
 
 ## Testing connectivity between the hosts
 > docker exec -ti host10 ping 192.168.200.15 \n
 > docker exec -ti host20 ping 192.168.100.15 \n
 
 ## Push the missing static route configs
-> python3 muzo.py
+> python3 gnmi_push_config.py
 
 
 
