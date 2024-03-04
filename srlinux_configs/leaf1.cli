@@ -3,18 +3,18 @@ set / interface ethernet-1/1 admin-state enable
 set / interface ethernet-1/1 subinterface 0
 set / interface ethernet-1/1 subinterface 0 admin-state enable
 set / interface ethernet-1/1 subinterface 0 ipv4
+set / interface ethernet-1/1 subinterface 0 ipv4 admin-state enable
 set / interface ethernet-1/1 subinterface 0 ipv4 address 10.1.1.1/31
-set / interface ethernet-1/1 subinterface 0 ipv6
-set / interface ethernet-1/1 subinterface 0 ipv6 address 2001:1::10:1:1:1/127
+
 
 set / interface ethernet-1/2
 set / interface ethernet-1/2 admin-state enable
 set / interface ethernet-1/2 subinterface 0
 set / interface ethernet-1/2 subinterface 0 admin-state enable
 set / interface ethernet-1/2 subinterface 0 ipv4
+set / interface ethernet-1/2 subinterface 0 ipv4 admin-state enable
 set / interface ethernet-1/2 subinterface 0 ipv4 address 10.2.1.1/31
-set / interface ethernet-1/2 subinterface 0 ipv6
-set / interface ethernet-1/2 subinterface 0 ipv6 address 2001:1::10:2:1:1/127
+
 
 set / interface ethernet-1/10
 set / interface ethernet-1/10 description to_the_host
@@ -23,6 +23,7 @@ set / interface ethernet-1/10 subinterface 0
 set / interface ethernet-1/10 subinterface 0 type routed
 set / interface ethernet-1/10 subinterface 0 admin-state enable
 set / interface ethernet-1/10 subinterface 0 ipv4
+set / interface ethernet-1/10 subinterface 0 ipv4 admin-state enable
 set / interface ethernet-1/10 subinterface 0 ipv4 address 192.168.100.5/24
 
 set / interface lo0
