@@ -7,5 +7,6 @@ After the python code sucessfully pushes the configs, the hosts are going to be 
 ![](schema.JPG)
 
 
-
-docker exec -ti host10 ping 192.168.200.15
+## Testing connectivity between the hosts
+> docker exec -ti host10 ping 192.168.200.15
+> docker exec -ti host20 ping 192.168.100.15
