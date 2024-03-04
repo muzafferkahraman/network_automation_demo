@@ -1,0 +1,68 @@
+name: muzolab
+prefix: ""
+
+mgmt:
+  network: st
+  ipv4-subnet: 172.80.80.0/24
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+    linux:
+      image: ghcr.io/hellt/network-multitool
+
+  nodes:
+    spine1:
+      kind: srl
+      type: ixrd3
+      mgmt-ipv4: 172.80.80.21
+      startup-config: srlinux_configs/spine1.cli
+
+
+    spine2:
+      kind: srl
+      type: ixrd3
+      mgmt-ipv4: 172.80.80.22
+      startup-config: srlinux_configs/spine2.cli
+
+
+    leaf1:
+      kind: srl
+      type: ixrd3
+      mgmt-ipv4: 172.80.80.11
+      startup-config: srlinux_configs/leaf1.cli
+
+
+    leaf2:
+      kind: srl
+      type: ixrd3
+      mgmt-ipv4: 172.80.80.12
+      startup-config: srlinux_configs/leaf2.cli
+
+
+    host10:
+      kind: "linux"
+      exec:
+        - ip li set dev eth1 mtu 1500
+        - ip li set dev eth1 address 00:00:00:01:01:00
+        - ip a add 192.168.100.15/24 dev eth1
+        - ip route add 192.168.200.0/24 via 192.168.100.5
+
+    host20:
+      kind: "linux"
+      exec:
+        - ip li set dev eth1 mtu 1500
+        - ip li set dev eth1 address 00:00:00:01:02:00
+        - ip a add 192.168.200.15/24 dev eth1
+        - ip route add 192.168.100.0/24 via 192.168.200.5
+
+  links:
+
+    - endpoints: ["spine1:e1-1", "leaf1:e1-1"]
+    - endpoints: ["spine1:e1-2", "leaf2:e1-1"]
+    - endpoints: ["spine2:e1-1", "leaf1:e1-2"]
+    - endpoints: ["spine2:e1-2", "leaf2:e1-2"]
+
+    - endpoints: ["host10:eth1", "leaf1:e1-10"]
+    - endpoints: ["host20:eth1", "leaf2:e1-10"]
