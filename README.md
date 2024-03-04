@@ -25,7 +25,7 @@ For the Demo, SRLinux devices are going to show up in the containerlab environme
 
 
 
-## Pre-requisite
+### Pre-requisite
 You need to deploy containerlab, beforehands to run this lab
 
 To install containerlab (CentOS 7)
