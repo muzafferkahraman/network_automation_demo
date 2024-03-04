@@ -12,16 +12,16 @@ For the Demo, SRLinux devices are going to show up in the containerlab environme
 **Here are the steps for the demo**
 
 ## Deploy the test topology
-> git clone https://github.com/muzafferkahraman/network_automation_demo
-> cd network_automation_demo
-> clab deploy -t lab_deploy.yml --reconfigure
+> git clone https://github.com/muzafferkahraman/network_automation_demo <br>
+> cd network_automation_demo <br>
+> clab deploy -t lab_deploy.yml --reconfigure <br>
 
 ## Testing connectivity between the hosts
-> docker exec -ti host10 ping 192.168.200.15 \n
-> docker exec -ti host20 ping 192.168.100.15 \n
+> docker exec -ti host10 ping 192.168.200.15 <br>
+> docker exec -ti host20 ping 192.168.100.15 <br>
 
 ## Push the missing static route configs
-> python3 gnmi_push_config.py
+> python3 gnmi_push_config.py 
 
 
 
@@ -31,7 +31,6 @@ You need to deploy containerlab, beforehands to run this lab
 To install containerlab (CentOS 7)
 > yum-config-manager --add-repo=https://yum.fury.io/netdevops/ && echo "gpgcheck=0" | 
 > sudo tee -a /etc/yum.repos.d/yum.fury.io_netdevops_.repo <br>
->
 > yum install containerlab
 
 for other distros, please refer to 
